@@ -1,0 +1,8 @@
+{
+  "team_id": "APIBP001",
+  "approach": "A",
+  "members": [
+    { "name": "Full Name 1", "github_username": "gh-handle-1" },
+    { "name": "Full Name 2", "github_username": "gh-handle-2" }
+  ]
+}

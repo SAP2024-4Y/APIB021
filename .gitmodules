@@ -1,0 +1,3 @@
+[submodule "src/AutoBuild"]
+	path = src/AutoBuild
+	url = https://github.com/AutoBuilders/AutoBuild.git
