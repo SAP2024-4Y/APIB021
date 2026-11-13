@@ -37,6 +37,10 @@ words:
   - mdbook
   - latex
   - katex
+  - Sathyanarayana
+  - pilani
+  - Vinaya
+  - SESAPZG
   # Team member names
   - Suvabrata
   - Chowdhury
@@ -49,6 +53,9 @@ words:
   - Naha
   - Wusat
   - Sami
+  - Yash
+  - yash
+  - Swastikanaha
   # Project identifiers
   - APIB021
   # Tech terms
@@ -66,3 +73,9 @@ words:
   - RBAC
   - dagger
   - codegen
+  - testuser
+  - testpass
+  - testpass
+  - Autobuild
+  - autobuild
+  - openapitools
