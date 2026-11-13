@@ -1,9 +1,6 @@
 # APIB021 — AutoBuild
 
-Course: `<course code & name>` | Section: `<section>` | Instructor: `<instructor>`
-
-> Replace every `<placeholder>` in this file. Deleted placeholders or mismatched names
-> (vs `team.json`) cost marks. Remove this note before submitting.
+Course: API Based Products & SESAPZG504 | Instructor: Vinaya Sathyanarayana
 
 ## Team Details
 
@@ -23,7 +20,7 @@ Course: `<course code & name>` | Section: `<section>` | Instructor: `<instructor
 ## Quick start
 
 ```bash
-git clone --recurse-submodules https://github.com/<course-org>/APIB021
+git clone --recurse-submodules https://github.com/SAP2024-4Y/APIB021.git
 cd APIB021/src/AutoBuild
 
 # Build the application image
