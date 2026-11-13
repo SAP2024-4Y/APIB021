@@ -122,32 +122,27 @@ npm run local-with-mock # starts Prism mock server + Vite against mock
 
 ### UI walkthrough
 
-`<!-- TODO: add screenshot or screen recording of the login page -->`
-
 1. **Login** — Navigate to `http://localhost:5173`. You are redirected to the Keycloak login
    page. Sign in with `testuser` / `testpass`.
-
-   `<!-- TODO: add screenshot: Keycloak login screen -->`
 
 2. **Pipelines list** — After login you land on the Pipelines page, which lists all defined
    pipelines fetched via the generated API client.
 
-   `<!-- TODO: add screenshot: Pipelines list page -->`
-
 3. **Create a pipeline** — Click **New Pipeline**, fill in the pipeline name and add stages
    (name, script type, bash command, order).
-
-   `<!-- TODO: add screenshot or video: pipeline creation form -->`
 
 4. **Run a pipeline** — Open a pipeline and click **Execute**. The build appears in the
    Builds list with state `WAITING → RUNNING`.
 
-   `<!-- TODO: add screenshot: pipeline execution triggered -->`
-
 5. **Monitor build progress** — Navigate to the build detail page. Stage states and logs
    update in real time via Server-Sent Events (`/api/v1/pipeline/build/sse/subscribe/{id}`).
 
-   `<!-- TODO: add screenshot or video: live build progress and stage logs -->`
+6. **Live Demo** - Autobuild Live Walkthrough
+   
+
+https://github.com/user-attachments/assets/cc225502-21c2-43e8-bc23-5c8b887f7483
+
+
 
 ## OpenAPI-driven client code generation
 
