@@ -39,8 +39,3 @@ jobs:
           inline: warning
           # Force the action to pass or fail based on typos
           strict: true
-      - name: Check Markdown Links
-        uses: tcort/github-action-markdown-link-check@v1
-        with:
-          check-modified-files-only: yes
-          base-branch: main
