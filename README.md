@@ -7,13 +7,14 @@ Course: `<course code & name>` | Section: `<section>` | Instructor: `<instructor
 
 ## Team Details
 
-| # | Name        | Roll No     | GitHub ID   | Email     |
-|---|-------------|-------------|-------------|-----------|
-| 1 | Member 1    | `<roll-no>` | `<gh-id>`   | `<email>` |
-| 2 | Member 2    | `<roll-no>` | `<gh-id>`   | `<email>` |
-| 3 | Member 3    | `<roll-no>` | `<gh-id>`   | `<email>` |
-| 4 | Member 4    | `<roll-no>` | `<gh-id>`   | `<email>` |
-| 5 | Member 5    | `<roll-no>` | `<gh-id>`   | `<email>` |
+| # | Name                     | Roll No      | GitHub ID            | Email                                        |
+|---|--------------------------|--------------|----------------------|----------------------------------------------|
+| 1 | Suvabrata Chowdhury      | 2024sl70020  | SuvabrataChowdhury   | 2024sl70020@wilp.bits-pilani.ac.in           |
+| 2 | Vivian Samuel Rodrigues  | 2024sl70050  | Sam007Yeah           | 2024sl70050@wilp.bits-pilani.ac.in           |
+| 3 | Meenakshi Sarkar         | 2024sl70030  | MeenakshiSarkar2692  | 2024sl70030@wilp.bits-pilani.ac.in           |
+| 4 | Yash Khaitan             | 2024sl70032  | yash-khaitan         | 2024sl70032@wilp.bits-pilani.ac.in           |
+| 5 | Swastika Naha            | 2024sl70003  | Swastikanaha15       | 2024sl70003@wilp.bits-pilani.ac.in           |
+| 6 | Wusat Sami               | 2024sl70002  | WusatSami03          | 2024sl70002@wilp.bits-pilani.ac.in           |
 
 - Team ID: `APIB021` (must equal the repository name and `team.json.team_id`)
 - Chosen Approach: `A` — REST-First + GraphQL Layer
