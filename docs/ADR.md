@@ -69,7 +69,7 @@ Pipeline ──< Stage
 
 - **List** — `GET /api/v1/pipeline` and `GET /api/v1/pipeline/build` are canonical list resources; in GraphQL: `Query.pipelines` and `Query.pipelineBuilds`. Cursor-based pagination (`after`/`limit`) planned for v2.
 - **Map** — `Stage.stageOrder` is an ordered integer key mapping position to stage. The execution engine runs stages from lowest to highest `stageOrder`; GraphQL exposes this as a sorted `[Stage!]!`.
-- **Calendar** — Builds are currently on-demand or webhook-triggered. A planned `Schedule` resource (cron + `pipelineId`) will model recurring runs: `POST /api/v1/pipeline/{id}/schedule` in REST, `Mutation.schedulePipeline` in GraphQL.
+- **Calendar** — Builds are stamped with the start time. A planned `Schedule` resource (cron + `pipelineId`) will model recurring runs: `POST /api/v1/pipeline/{id}/schedule` in REST, `Mutation.schedulePipeline` in GraphQL.
 
 ---
 
@@ -143,6 +143,7 @@ All REST errors use `application/problem+json` (RFC 9457). All GraphQL errors ca
 1. **Scheduled triggers (v2)** — A `Schedule` resource (cron + `pipelineId`) enables recurring runs. REST: `POST /api/v1/pipeline/{id}/schedule`; GraphQL: `Mutation.schedulePipeline`.
 2. **Multi-tenant workspaces** — A `Workspace` above `Pipeline` enables team isolation and per-workspace RBAC. REST: `/api/v1/workspace/{id}/pipeline/...`; GraphQL: `Workspace` as top-level query entry.
 3. **GraphQL subscriptions** — Replace the SSE endpoint with `Subscription.pipelineBuildUpdated(buildId: ID!): PipelineBuild` for real-time updates consumable by any GraphQL client without SSE support.
+4. **Microservice Seperation** - Replace the existing monolith executor module with a `go` based service which uses `dagger` based clients to orchestrate the pipeline dynamically.
 
 ---
 
@@ -151,3 +152,4 @@ All REST errors use `application/problem+json` (RFC 9457). All GraphQL errors ca
 1. **Reduced time-to-pipeline** — Teams define and run pipelines in minutes without CI YAML or external agents. OpenAPI-driven codegen keeps the UI and API in sync automatically.
 2. **Operational visibility out of the box** — The monitoring stack (Grafana, Loki, Prometheus, Alloy) ships as a compose overlay. `/health` is wired into the Docker Compose dependency graph and Prometheus scrape config from day one.
 3. **Low-friction extensibility** — Feature flags (flagd / OpenFeature) enable incremental rollout without redeployment. The observer-pattern engine and planned GraphQL layer let new consumers and capabilities be added without breaking the existing REST contract.
+
