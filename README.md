@@ -159,7 +159,7 @@ npm run local-with-mock # starts Prism mock server + Vite against mock
 ```
 
 > `local-with-mock` uses `.env.local-with-mock` and points the UI at the Prism mock
-> server (port 4010) generated from `apis/openapi-spec/pipeline-service.yaml`.
+> server (port 4010) generated from `src/AutoBuild/apis/openapi-spec/pipeline-service.yaml`.
 
 ### UI walkthrough
 
@@ -184,9 +184,9 @@ https://github.com/user-attachments/assets/cc225502-21c2-43e8-bc23-5c8b887f7483
 
 The frontend never calls the backend directly with hand-written fetch calls. Instead:
 
-1. **Source of truth** — `apis/openapi-spec/pipeline-service.yaml` is the single OpenAPI spec for the pipeline service.
+1. **Source of truth** — `src/AutoBuild/apis/openapi-spec/pipeline-service.yaml` is the single OpenAPI spec for the pipeline service.
 
-2. **Code generation** — `openapitools.json` (in `pipeline-ui/`) configures `openapi-generator-cli` to produce a TypeScript-Axios client into `pipeline-ui/src/gen/`:
+2. **Code generation** — `src/AutoBuild/pipeline-ui/openapitools.json` configures `openapi-generator-cli` to produce a TypeScript-Axios client into `src/AutoBuild/pipeline-ui/src/gen/`:
 
    ```bash
    # From APIB021/src/AutoBuild/pipeline-ui
@@ -198,12 +198,12 @@ The frontend never calls the backend directly with hand-written fetch calls. Ins
    The generator uses the `typescript-axios` generator and reads the spec at
    `../apis/openapi-spec/pipeline-service.yaml`.
 
-3. **Generated output** — `pipeline-ui/src/gen/` contains:
+3. **Generated output** — `src/AutoBuild/pipeline-ui/src/gen/` contains:
    - `api.ts` — typed API classes (`PipelineApi`, `PipelineBuildApi`, `StageBuildApi`)
    - `configuration.ts` — base URL and auth header configuration
    - `index.ts` — barrel export used by the rest of the app
 
-4. **Usage in the app** — Service files under `pipeline-ui/src/services/` import from `src/gen/` and pass the configured Axios instance (with the Keycloak bearer token injected via an interceptor in `axiosInstance.ts`).
+4. **Usage in the app** — Service files under `src/AutoBuild/pipeline-ui/src/services/` import from `src/gen/` and pass the configured Axios instance (with the Keycloak bearer token injected via an interceptor in `axiosInstance.ts`).
 
 5. **Mock server** — The same spec drives the Prism mock server (`npm run mock`), so the UI can be developed and tested without a running backend.
 
@@ -293,4 +293,4 @@ The spec is written to `apis/openapi-spec/pipeline-service.yaml`. Commit it afte
 
 Dependency updates across Maven, npm, GitHub Actions, and Docker base images are automated via [Renovate](https://docs.renovatebot.com/). Renovate was adopted after an initial period using Dependabot — it offers better monorepo support and finer-grained control over grouping and scheduling updates.
 
-Renovate runs on a schedule and opens PRs automatically when new versions are available. The configuration lives in `renovate.json` at the repo root.
+Renovate runs on a schedule and opens PRs automatically when new versions are available. The configuration lives in `src/AutoBuild/renovate.json`.
