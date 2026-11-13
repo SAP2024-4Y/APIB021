@@ -57,9 +57,10 @@ words:
   - yash
   - Swastikanaha
   # Project identifiers
-  - APIB021
+  - APIBP021
   # Tech terms
   - GraphQL
+  - GraphiQL
   - Keycloak
   - Prism
   - Vite
@@ -79,3 +80,8 @@ words:
   - Autobuild
   - autobuild
   - openapitools
+  - Renovate
+  - Dependabot
+  - Bruno
+  - opencollection
+  - pipelinecollection
