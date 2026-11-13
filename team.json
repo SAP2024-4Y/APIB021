@@ -2,10 +2,11 @@
   "team_id": "APIBP021",
   "approach": "A",
   "members": [
-    { "name": "Suvabrata Chowdhury", "github_username": "SuvabrataChowdhury" },
-    { "name": "Vivian Samuel Rodrigues", "github_username": "Sam007Yeah" },
-    { "name": "Meenakshi Sarkar", "github_username": "MeenakshiSarkar2692" },
-    { "name": "Yash Khaitan", "github_username": "yash-khaitan" },
-    { "name": "Swastika Naha", "github_username": "Swastikanaha15" }
+    { "name": "Suvabrata Chowdhury", "github_username": "SuvabrataChowdhury", "roll_number": "2024sl70020", "email": "2024sl70020@wilp.bits-pilani.ac.in" },
+    { "name": "Vivian Samuel Rodrigues", "github_username": "Sam007Yeah", "roll_number": "2024sl70050", "email": "2024sl70050@wilp.bits-pilani.ac.in" },
+    { "name": "Meenakshi Sarkar", "github_username": "MeenakshiSarkar2692", "roll_number": "2024sl70030", "email": "2024sl70030@wilp.bits-pilani.ac.in" },
+    { "name": "Yash Khaitan", "github_username": "yash-khaitan", "roll_number": "2024sl70032", "email": "2024sl70032@wilp.bits-pilani.ac.in" },
+    { "name": "Swastika Naha", "github_username": "Swastikanaha15", "roll_number": "2024sl70003", "email": "2024sl70003@wilp.bits-pilani.ac.in" },
+    { "name": "Wusat Sami", "github_username": "WusatSami03", "roll_number": "2024sl70002", "email": "2024sl70002@wilp.bits-pilani.ac.in" }
   ]
 }
