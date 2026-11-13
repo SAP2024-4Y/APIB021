@@ -60,6 +60,7 @@ words:
   - APIB021
   # Tech terms
   - GraphQL
+  - GraphiQL
   - Keycloak
   - Prism
   - Vite
@@ -79,3 +80,5 @@ words:
   - Autobuild
   - autobuild
   - openapitools
+  - Renovate
+  - Dependabot

@@ -41,6 +41,34 @@ Services available after startup:
 | Server            | http://localhost:8080     |
 | Auth (Keycloak)   | http://localhost:8180     |
 | Feature flags     | http://localhost:8016     |
+| GraphiQL UI       | http://localhost:8080/graphiql |
+
+> **Note:** The GraphQL layer is currently under development. GraphiQL is only accessible without authentication when running with the `default` Spring profile. The `docker compose` stack activates the `demo` profile (Keycloak/JWT), so visiting `/graphiql` will return an authentication error. To explore GraphiQL locally without auth, start the backend directly with `SPRING_PROFILES_ACTIVE=default`.
+
+## GraphQL schema
+
+Current schema (under development — only read queries are implemented):
+
+```graphql
+type Query {
+    getPipelineById(pipelineId: ID!): Pipeline
+    getAllPipelines: [Pipeline!]!
+}
+
+type Pipeline {
+    id: ID
+    name: String!
+    stages: [Stage!]!
+}
+
+type Stage {
+    id: ID
+    name: String!
+    scriptType: String!
+    command: String
+    stageOrder: Int!
+}
+```
 
 ## Demo credentials
 
@@ -207,4 +235,48 @@ docker compose down -v
 
 ## Bazel based CI
 
-As Autobuild is a monorepo, maintaining its CI pipeline with all different toolings is difficult. To 
+As AutoBuild is a monorepo with multiple toolchains (Maven, npm), Bazel provides a unified build and test interface with caching across all services. Each service delegates to its native tooling while Bazel wraps it consistently.
+
+### Prerequisites
+
+- [Bazel](https://bazel.build/install) installed
+- `WORKSPACE_DIR` exported in your shell profile pointing to the AutoBuild submodule root:
+
+  ```bash
+  export WORKSPACE_DIR=/path/to/APIB021/src/AutoBuild
+  ```
+
+### Running tests
+
+```bash
+# From APIB021/src/AutoBuild
+
+# Backend (Java/Maven)
+bazel test //pipeline:test
+
+# Frontend (Node/npm)
+bazel test //pipeline-ui:unit_test
+```
+
+Use `--test_output=streamed` to see Maven/npm output live:
+
+```bash
+bazel test //pipeline:test --test_output=streamed
+```
+
+### Generating the OpenAPI spec
+
+```bash
+# From APIB021/src/AutoBuild
+bazel build --config=openapi //pipeline:generate-openapi
+```
+
+The spec is written to `apis/openapi-spec/pipeline-service.yaml`. Commit it after any API change.
+
+> See `src/AutoBuild/autobuild-docs/setup/bazel.md` for full details on caching, test output flags, and adding new services.
+
+## Dependency management
+
+Dependency updates across Maven, npm, GitHub Actions, and Docker base images are automated via [Renovate](https://docs.renovatebot.com/). Renovate was adopted after an initial period using Dependabot — it offers better monorepo support and finer-grained control over grouping and scheduling updates.
+
+Renovate runs on a schedule and opens PRs automatically when new versions are available. The configuration lives in `renovate.json` at the repo root.
