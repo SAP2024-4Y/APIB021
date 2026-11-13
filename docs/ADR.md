@@ -143,7 +143,7 @@ All REST errors use `application/problem+json` (RFC 9457). All GraphQL errors ca
 1. **Scheduled triggers (v2)** — A `Schedule` resource (cron + `pipelineId`) enables recurring runs. REST: `POST /api/v1/pipeline/{id}/schedule`; GraphQL: `Mutation.schedulePipeline`.
 2. **Multi-tenant workspaces** — A `Workspace` above `Pipeline` enables team isolation and per-workspace RBAC. REST: `/api/v1/workspace/{id}/pipeline/...`; GraphQL: `Workspace` as top-level query entry.
 3. **GraphQL subscriptions** — Replace the SSE endpoint with `Subscription.pipelineBuildUpdated(buildId: ID!): PipelineBuild` for real-time updates consumable by any GraphQL client without SSE support.
-4. **Microservice Seperation** - Replace the existing monolith executor module with a `go` based service which uses `dagger` based clients to orchestrate the pipeline dynamically.
+4. **Microservice Separation** - Replace the existing monolith executor module with a `go` based service which uses `dagger` based clients to orchestrate the pipeline dynamically.
 
 ---
 
