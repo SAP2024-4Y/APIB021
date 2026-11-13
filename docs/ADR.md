@@ -1,6 +1,6 @@
 # Architecture Decision Record — AutoBuild API
 
-**Team:** APIB021 | **Date:** 2026-11-13 | **Status:** Accepted
+**Team:** APIBP021 | **Date:** 2026-11-13 | **Status:** Accepted
 
 ---
 

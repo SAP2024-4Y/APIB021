@@ -1,4 +1,4 @@
-# APIB021 — AutoBuild
+# APIBP021 — AutoBuild
 
 Course: API Based Products & SESAPZG504 | Instructor: Vinaya Sathyanarayana
 
@@ -13,7 +13,7 @@ Course: API Based Products & SESAPZG504 | Instructor: Vinaya Sathyanarayana
 | 5 | Swastika Naha            | 2024sl70003  | Swastikanaha15       | 2024sl70003@wilp.bits-pilani.ac.in           |
 | 6 | Wusat Sami               | 2024sl70002  | WusatSami03          | 2024sl70002@wilp.bits-pilani.ac.in           |
 
-- Team ID: `APIB021` 
+- Team ID: `APIBP021` 
 - Chosen Approach: `A` — REST-First + GraphQL Layer
 
 ## Quick start
