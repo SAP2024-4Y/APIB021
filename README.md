@@ -13,9 +13,8 @@ Course: API Based Products & SESAPZG504 | Instructor: Vinaya Sathyanarayana
 | 5 | Swastika Naha            | 2024sl70003  | Swastikanaha15       | 2024sl70003@wilp.bits-pilani.ac.in           |
 | 6 | Wusat Sami               | 2024sl70002  | WusatSami03          | 2024sl70002@wilp.bits-pilani.ac.in           |
 
-- Team ID: `APIB021` (must equal the repository name and `team.json.team_id`)
+- Team ID: `APIB021` 
 - Chosen Approach: `A` — REST-First + GraphQL Layer
-  (must equal `team.json.approach`; change to `B` — GraphQL-First + REST Wrapper if chosen)
 
 ## Quick start
 
@@ -122,20 +121,15 @@ npm run local-with-mock # starts Prism mock server + Vite against mock
 
 ### UI walkthrough
 
-1. **Login** — Navigate to `http://localhost:5173`. You are redirected to the Keycloak login
-   page. Sign in with `testuser` / `testpass`.
+1. **Login** — Navigate to `http://localhost:5173`. You are redirected to the Keycloak login page. Sign in with `testuser` / `testpass`.
 
-2. **Pipelines list** — After login you land on the Pipelines page, which lists all defined
-   pipelines fetched via the generated API client.
+2. **Pipelines list** — After login you land on the Pipelines page, which lists all defined pipelines fetched via the generated API client.
 
-3. **Create a pipeline** — Click **New Pipeline**, fill in the pipeline name and add stages
-   (name, script type, bash command, order).
+3. **Create a pipeline** — Click **New Pipeline**, fill in the pipeline name and add stages (name, script type, bash command, order).
 
-4. **Run a pipeline** — Open a pipeline and click **Execute**. The build appears in the
-   Builds list with state `WAITING → RUNNING`.
+4. **Run a pipeline** — Open a pipeline and click **Execute**. The build appears in the Builds list with state `WAITING → RUNNING`.
 
-5. **Monitor build progress** — Navigate to the build detail page. Stage states and logs
-   update in real time via Server-Sent Events (`/api/v1/pipeline/build/sse/subscribe/{id}`).
+5. **Monitor build progress** — Navigate to the build detail page. Stage states and logs update in real time via Server-Sent Events (`/api/v1/pipeline/build/sse/subscribe/{id}`).
 
 6. **Live Demo** - Autobuild Live Walkthrough
    
@@ -148,11 +142,9 @@ https://github.com/user-attachments/assets/cc225502-21c2-43e8-bc23-5c8b887f7483
 
 The frontend never calls the backend directly with hand-written fetch calls. Instead:
 
-1. **Source of truth** — `apis/openapi-spec/pipeline-service.yaml` is the single OpenAPI spec
-   for the pipeline service.
+1. **Source of truth** — `apis/openapi-spec/pipeline-service.yaml` is the single OpenAPI spec for the pipeline service.
 
-2. **Code generation** — `openapitools.json` (in `pipeline-ui/`) configures
-   `openapi-generator-cli` to produce a TypeScript-Axios client into `pipeline-ui/src/gen/`:
+2. **Code generation** — `openapitools.json` (in `pipeline-ui/`) configures `openapi-generator-cli` to produce a TypeScript-Axios client into `pipeline-ui/src/gen/`:
 
    ```bash
    # From APIB021/src/AutoBuild/pipeline-ui
@@ -169,19 +161,15 @@ The frontend never calls the backend directly with hand-written fetch calls. Ins
    - `configuration.ts` — base URL and auth header configuration
    - `index.ts` — barrel export used by the rest of the app
 
-4. **Usage in the app** — Service files under `pipeline-ui/src/services/` import from
-   `src/gen/` and pass the configured Axios instance (with the Keycloak bearer token
-   injected via an interceptor in `axiosInstance.ts`).
+4. **Usage in the app** — Service files under `pipeline-ui/src/services/` import from `src/gen/` and pass the configured Axios instance (with the Keycloak bearer token injected via an interceptor in `axiosInstance.ts`).
 
-5. **Mock server** — The same spec drives the Prism mock server (`npm run mock`), so the UI
-   can be developed and tested without a running backend.
+5. **Mock server** — The same spec drives the Prism mock server (`npm run mock`), so the UI can be developed and tested without a running backend.
 
 > Re-run `generate:clean-client-code` any time `pipeline-service.yaml` changes.
 
 ## Monitoring stack
 
-The full observability stack (Grafana, Loki, Prometheus, Alloy) can be started alongside
-the application using additional compose files:
+The full observability stack (Grafana, Loki, Prometheus, Alloy) can be started alongside the application using additional compose files:
 
 ```bash
 # From APIB021/src/AutoBuild
@@ -216,3 +204,7 @@ docker compose down
 # To also wipe all persisted volumes (database, logs, metrics):
 docker compose down -v
 ```
+
+## Bazel based CI
+
+As Autobuild is a monorepo, maintaining its CI pipeline with all different toolings is difficult. To 
