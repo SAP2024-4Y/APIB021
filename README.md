@@ -70,6 +70,20 @@ type Stage {
 }
 ```
 
+## API collection (Bruno)
+
+All API endpoints can be tested using the [Bruno](https://www.usebruno.com/) API client. The collection is at `src/AutoBuild/apis/opencollection/pipelinecollection/` and covers three folders:
+
+- **Keycloak Auth** — fetch an access token and verify auth flows
+- **Pipeline CRUD** — create, read, update, and delete pipelines
+- **Executor Ops** — trigger builds, stream live build state via SSE, read stage logs
+
+### Setup
+
+1. Open Bruno and select **Open Collection**, then point it at `src/AutoBuild/apis/opencollection/pipelinecollection/`.
+2. Select the `local` environment — it pre-populates `host`, `keycloak_url`, credentials, and an empty `access_token` variable.
+3. Run **Keycloak Auth → GetToken** first; it stores the token in `access_token`, which is injected as a bearer token into all subsequent requests.
+
 ## Demo credentials
 
 Get an access token from Keycloak:
